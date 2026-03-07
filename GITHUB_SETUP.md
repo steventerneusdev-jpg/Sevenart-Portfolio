@@ -107,15 +107,15 @@ git remote set-url origin git@github.com:VOTRE-USERNAME/sevenart-portfolio.git
 ## 📝 Exemple complet
 
 ```bash
-# Si votre username GitHub est "steventerneus"
-git remote add origin https://github.com/steventerneus/sevenart-portfolio.git
+# Remplacez VOTRE-USERNAME par votre vrai username GitHub
+git remote add origin https://github.com/VOTRE-USERNAME/sevenart-portfolio.git
 git branch -M main
 git push -u origin main
 ```
 
 Ou avec SSH :
 ```bash
-git remote add origin git@github.com:steventerneus/sevenart-portfolio.git
+git remote add origin git@github.com:VOTRE-USERNAME/sevenart-portfolio.git
 git branch -M main
 git push -u origin main
 ```
