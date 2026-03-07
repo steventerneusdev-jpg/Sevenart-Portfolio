@@ -1,0 +1,47 @@
+╔════════════════════════════════════════════════╗
+║      🎬 PORTFOLIO SEVENART - EN LIGNE 🎬      ║
+╚════════════════════════════════════════════════╝
+
+✅ Le serveur tourne déjà !
+
+🌐 URL : http://localhost:5174
+
+═══════════════════════════════════════════════
+
+📋 CE QUI A ÉTÉ FAIT :
+
+✅ Design adapté selon votre code
+✅ Couleurs zinc-950 + cyan-500
+✅ Vos infos : sevenart.ts@gmail.com
+✅ Votre logo et portrait intégrés
+✅ Animations Framer Motion
+✅ Structure simplifiée
+
+═══════════════════════════════════════════════
+
+📂 VOS IMAGES :
+
+• src/assets/logo.png ......... Logo navbar
+• src/assets/portrait.jpeg .... Portrait Hero
+
+═══════════════════════════════════════════════
+
+✏️ MODIFIER VOS VIDÉOS :
+
+Fichier : src/App.jsx
+Ligne : ~8 (tableau VIDEO_DATA)
+
+Changez :
+- title : Titre de la vidéo
+- category : Publicité/Court-métrage/Événementiel
+- thumbnail : URL de la miniature
+- embedId : ID YouTube
+- description : Description
+
+═══════════════════════════════════════════════
+
+🚀 OUVREZ MAINTENANT :
+
+http://localhost:5174
+
+═══════════════════════════════════════════════
