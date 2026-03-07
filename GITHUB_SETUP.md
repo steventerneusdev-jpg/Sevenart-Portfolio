@@ -17,7 +17,7 @@ Ouvrez : https://github.com
 
 ### 3. Configurez le repository
 - **Repository name** : `sevenart-portfolio` (ou autre nom)
-- **Description** : `Portfolio professionnel - Steven Terneus - Sevenart`
+- **Description** : `Mon portfolio professionnel` (ou votre propre description)
 - **Public** ou **Private** : À votre choix
 - ⚠️ **NE COCHEZ PAS** les options suivantes :
   - ❌ Add a README file

@@ -45,7 +45,7 @@ Votre projet est prêt à être envoyé sur GitHub ! ✅
    ```bash
    pwd
    ```
-   Vous devriez voir : `/Users/steventerneus/Dev/Sevenart portfolio`
+   Vous devriez voir le chemin vers votre dossier de projet
 
 3. **Collez l'URL que vous avez copiée** dans cette commande :
    ```bash
