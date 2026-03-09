@@ -56,10 +56,16 @@ const VIDEO_DATA = [
     thumbnail: "https://img.youtube.com/vi/dO98IxSqwpk/maxresdefault.jpg",
     embedId: "dO98IxSqwpk",
     description: "",
-  }
+  },
 ];
 
-const CATEGORIES = ["Tous", "Lifestyle", "Court-métrage", "Événementiel", "Sport"];
+const CATEGORIES = [
+  "Tous",
+  "Lifestyle",
+  "Court-métrage",
+  "Événementiel",
+  "Sport",
+];
 
 // ==========================================
 // 2. COMPOSANTS D'INTERFACE
@@ -79,7 +85,7 @@ const Navbar = ({ scrolled }) => (
         <img src={logoImg} alt="Sevenart Logo" className="h-14 w-auto" />
         {/* <span className="text-lg font-bold tracking-widest uppercase">Sevenart</span> */}
       </motion.div>
-      <div className="hidden md:flex gap-8 text-sm font-medium uppercase tracking-widest">
+      <div className="flex gap-4 md:gap-8 text-xs md:text-sm font-medium uppercase tracking-widest">
         <motion.a
           href="#projets"
           className="hover:text-cyan-400 transition-colors"
@@ -95,25 +101,11 @@ const Navbar = ({ scrolled }) => (
           Contact
         </motion.a>
       </div>
-      <button className="md:hidden p-2">
-        <div className="w-6 h-0.5 bg-zinc-100 mb-1"></div>
-        <div className="w-6 h-0.5 bg-zinc-100"></div>
-      </button>
     </div>
   </nav>
 );
 
-const Hero = ({ onLogoAnimationComplete }) => {
-  const [logoVisible, setLogoVisible] = React.useState(true);
-
-  React.useEffect(() => {
-    const timer = setTimeout(() => {
-      setLogoVisible(false);
-      onLogoAnimationComplete();
-    }, 2500);
-    return () => clearTimeout(timer);
-  }, [onLogoAnimationComplete]);
-
+const Hero = () => {
   // ========================================
   // 📍 POSITION DU PORTRAIT - AJUSTEZ ICI
   // ========================================
@@ -130,8 +122,8 @@ const Hero = ({ onLogoAnimationComplete }) => {
       {/* Background noir */}
       <div className="absolute inset-0 z-0 bg-[#070707]"></div>
 
-      {/* Rectangle cyan importé derrière le portrait */}
-      <div className="absolute top-0 right-0 h-full z-0 flex items-center justify-end">
+      {/* Rectangle cyan importé derrière le portrait - Desktop uniquement (>= 1024px) */}
+      <div className="absolute top-0 right-0 h-full z-0 hidden lg:flex items-center justify-end">
         <img
           src={rectangleBg}
           alt=""
@@ -140,14 +132,52 @@ const Hero = ({ onLogoAnimationComplete }) => {
         />
       </div>
 
-      {/* Grand "01" avec EFFET NÉON cyan lumineux */}
+      {/* Cercles animés en blur pour mobile et tablette (< 1024px) */}
+      <div className="absolute inset-0 z-0 block lg:hidden overflow-hidden">
+        {/* Cercle cyan principal */}
+        <motion.div
+          className="absolute w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-full bg-cyan-500"
+          style={{ filter: "blur(80px)", opacity: 0.3 }}
+          animate={{
+            x: [0, 30, 0],
+            y: [0, -40, 0],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          initial={{ top: "20%", right: "10%" }}
+        />
+
+        {/* Cercle cyan clair secondaire */}
+        <motion.div
+          className="absolute w-[250px] h-[250px] md:w-[350px] md:h-[350px] rounded-full bg-cyan-300"
+          style={{ filter: "blur(70px)", opacity: 0.25 }}
+          animate={{
+            x: [0, -40, 0],
+            y: [0, 30, 0],
+            scale: [1, 1.15, 1],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+          initial={{ bottom: "30%", left: "15%" }}
+        />
+      </div>
+
+      {/* Grand "01" avec EFFET NÉON cyan lumineux - Desktop uniquement (>= 1024px) */}
       <div
-        className="absolute bottom-0 left-0 z-0 overflow-hidden w-full"
+        className="absolute bottom-0 left-0 z-0 overflow-hidden w-full hidden lg:block"
         style={{ transform: "translateY(45%)" }}
       >
         <div className="container mx-auto px-6">
           <span
-            className="text-[14rem] md:text-[18rem] lg:text-[24rem] font-black leading-none block"
+            className="text-[8rem] sm:text-[12rem] md:text-[18rem] lg:text-[24rem] font-black leading-none block"
             style={{
               color: "#22d3ee",
               textShadow:
@@ -161,16 +191,16 @@ const Hero = ({ onLogoAnimationComplete }) => {
         </div>
       </div>
 
-      <div className="relative h-screen container mx-auto px-6 py-32 md:py-20 z-10 flex flex-col md:flex-row items-center justify-between gap-12">
+      <div className="relative min-h-screen lg:h-screen container mx-auto px-6 pt-64 pb-12 md:py-20 z-10 flex flex-col md:flex-row items-center justify-center lg:justify-between gap-6 lg:gap-12">
         {/* Bloc texte (Gauche) */}
         <motion.div
-          className="flex-1 text-left max-w-2xl"
+          className="flex-1 text-center lg:text-left max-w-2xl"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
           <motion.h1
-            className="text-5xl md:text-6xl lg:text-7xl font-black mb-4 tracking-tighter uppercase text-white leading-tight"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-4 tracking-tighter uppercase text-white leading-tight"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -178,7 +208,7 @@ const Hero = ({ onLogoAnimationComplete }) => {
             STEVEN TERNEUS
           </motion.h1>
           <motion.h2
-            className="text-2xl md:text-3xl lg:text-4xl font-light text-cyan-400 mb-3 tracking-wide"
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light text-cyan-400 mb-3 tracking-wide"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -186,7 +216,7 @@ const Hero = ({ onLogoAnimationComplete }) => {
             L'art au-delà du regard
           </motion.h2>
           <motion.p
-            className="text-zinc-400 text-xs md:text-sm tracking-[0.3em] uppercase mb-16 font-medium"
+            className="text-zinc-400 text-[0.65rem] sm:text-xs md:text-sm tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-8 lg:mb-16 font-medium px-4 lg:px-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -196,50 +226,52 @@ const Hero = ({ onLogoAnimationComplete }) => {
 
           {/* Bloc Contact avec trait vertical cyan fin - tout sur une ligne */}
           <motion.div
-            className="flex items-center gap-6 pl-6 mb-12 relative"
+            className="flex items-center gap-6 pl-0 lg:pl-6 mb-6 lg:mb-12 relative justify-center lg:justify-start"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            {/* Trait vertical cyan fin */}
-            <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-cyan-500"></div>
+            {/* Trait vertical cyan fin - caché sur mobile et tablette */}
+            <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-cyan-500 hidden lg:block"></div>
 
-            {/* Instagram et Email sur la même ligne */}
-            <motion.div
-              className="flex items-center gap-3 text-zinc-300 hover:text-cyan-400 transition-colors"
-              whileHover={{ x: 3 }}
-            >
-              <Instagram size={20} />
-              <a
-                href="https://instagram.com/sevenart.ts"
-                target="_blank"
-                rel="noreferrer"
-                className="text-base"
+            {/* Instagram et Email - responsive */}
+            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+              <motion.div
+                className="flex items-center gap-3 text-zinc-300 hover:text-cyan-400 transition-colors"
+                whileHover={{ x: 3 }}
               >
-                @sevenart.ts
-              </a>
-            </motion.div>
+                <Instagram size={20} />
+                <a
+                  href="https://instagram.com/sevenart.ts"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-base"
+                >
+                  @sevenart.ts
+                </a>
+              </motion.div>
 
-            <motion.div
-              className="flex items-center gap-3 text-zinc-300 hover:text-cyan-400 transition-colors"
-              whileHover={{ x: 3 }}
-            >
-              <Mail size={20} />
-              <a href="mailto:sevenart.ts@gmail.com" className="text-base">
-                sevenart.ts@gmail.com
-              </a>
-            </motion.div>
+              <motion.div
+                className="flex items-center gap-3 text-zinc-300 hover:text-cyan-400 transition-colors"
+                whileHover={{ x: 3 }}
+              >
+                <Mail size={20} />
+                <a href="mailto:sevenart.ts@gmail.com" className="text-base">
+                  sevenart.ts@gmail.com
+                </a>
+              </motion.div>
+            </div>
           </motion.div>
 
           <motion.div
-            className="flex flex-col sm:flex-row gap-4"
+            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
           >
             <motion.a
               href="#projets"
-              className="px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-zinc-950 font-bold rounded-full transition-all duration-300 flex items-center justify-center gap-2 group"
+              className="px-8 md:px-16 py-4 bg-cyan-500 hover:bg-cyan-400 text-zinc-950 font-bold rounded-full transition-all duration-300 flex items-center justify-center gap-2 group w-full md:w-auto md:min-w-[280px] lg:w-auto"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -252,9 +284,9 @@ const Hero = ({ onLogoAnimationComplete }) => {
           </motion.div>
         </motion.div>
 
-        {/* Portrait à droite - ajustable avec portraitPosition */}
+        {/* Portrait à droite - ajustable avec portraitPosition - Desktop uniquement (>= 1024px) */}
         <motion.div
-          className="absolute z-20"
+          className="absolute z-20 hidden lg:block"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1.15 }}
           transition={{ duration: 0.8, delay: 0.4 }}
