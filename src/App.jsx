@@ -180,33 +180,28 @@ const Hero = () => {
 
       <div className="relative min-h-screen lg:h-screen container mx-auto px-6 pt-64 pb-12 md:py-20 z-10 flex flex-col md:flex-row items-center justify-center lg:justify-between gap-6 lg:gap-12">
         {/* Bloc texte (Gauche) */}
-        <motion.div
-          className="flex-1 text-center lg:text-left max-w-2xl"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-        >
+        <div className="flex-1 text-center lg:text-left max-w-2xl">
           <motion.h1
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-4 tracking-tighter uppercase text-white leading-tight"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
           >
             STEVEN TERNEUS
           </motion.h1>
           <motion.h2
             className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light text-cyan-400 mb-3 tracking-wide"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
           >
             L'art au-delà du regard
           </motion.h2>
           <motion.p
             className="text-zinc-400 text-[0.65rem] sm:text-xs md:text-sm tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-8 lg:mb-16 font-medium px-4 lg:px-0"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
           >
             PHOTOGRAPHE & VIDÉASTE DE TOUS VOS ÉVÉNEMENTS
           </motion.p>
@@ -214,19 +209,16 @@ const Hero = () => {
           {/* Bloc Contact avec trait vertical cyan fin - tout sur une ligne */}
           <motion.div
             className="flex items-center gap-6 pl-0 lg:pl-6 mb-6 lg:mb-12 relative justify-center lg:justify-start"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
           >
             {/* Trait vertical cyan fin - caché sur mobile et tablette */}
             <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-cyan-500 hidden lg:block"></div>
 
             {/* Instagram et Email - responsive */}
             <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-              <motion.div
-                className="flex items-center gap-3 text-zinc-300 hover:text-cyan-400 transition-colors"
-                whileHover={{ x: 3 }}
-              >
+              <div className="flex items-center gap-3 text-zinc-300 hover:text-cyan-400 transition-colors">
                 <Instagram size={20} />
                 <a
                   href="https://instagram.com/sevenart.ts"
@@ -236,25 +228,22 @@ const Hero = () => {
                 >
                   @sevenart.ts
                 </a>
-              </motion.div>
+              </div>
 
-              <motion.div
-                className="flex items-center gap-3 text-zinc-300 hover:text-cyan-400 transition-colors"
-                whileHover={{ x: 3 }}
-              >
+              <div className="flex items-center gap-3 text-zinc-300 hover:text-cyan-400 transition-colors">
                 <Mail size={20} />
                 <a href="mailto:sevenart.ts@gmail.com" className="text-base">
                   sevenart.ts@gmail.com
                 </a>
-              </motion.div>
+              </div>
             </div>
           </motion.div>
 
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1 }}
+            transition={{ duration: 0.8, delay: 0.9 }}
           >
             <motion.a
               href="#projets"
@@ -269,7 +258,7 @@ const Hero = () => {
               />
             </motion.a>
           </motion.div>
-        </motion.div>
+        </div>
 
         {/* Portrait à droite - ajustable avec portraitPosition - Desktop uniquement (>= 1024px) */}
         <motion.div
