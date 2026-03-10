@@ -2,7 +2,7 @@
 
 ## ⚠️ Problème actuel
 
-Votre image `portrait.png` fait **47 MB** ! C'est beaucoup trop lourd, d'où le temps de chargement.
+Votre image `portrait.webp` fait **47 MB** ! C'est beaucoup trop lourd, d'où le temps de chargement.
 
 ---
 
@@ -11,13 +11,15 @@ Votre image `portrait.png` fait **47 MB** ! C'est beaucoup trop lourd, d'où le 
 ### Option 1 : En ligne (Gratuit, Facile)
 
 **1. TinyPNG** (Recommandé)
+
 - Allez sur : https://tinypng.com
-- Glissez votre `portrait.png`
+- Glissez votre `portrait.webp`
 - Téléchargez la version optimisée
 - Remplacez le fichier dans `src/assets/`
 - **Résultat** : ~2-5 MB (10x plus léger)
 
 **2. Squoosh** (Par Google)
+
 - Allez sur : https://squoosh.app
 - Glissez votre image
 - Ajustez la qualité (80-85% recommandé)
@@ -29,25 +31,27 @@ Votre image `portrait.png` fait **47 MB** ! C'est beaucoup trop lourd, d'où le 
 WebP est 30% plus léger que PNG avec la même qualité.
 
 **Sur Squoosh.app** :
-1. Uploadez votre portrait.png
+
+1. Uploadez votre portrait.webp
 2. Sélectionnez "WebP" dans les options
 3. Qualité : 80-85%
 4. Téléchargez en `.webp`
 
 **Puis dans votre code** :
+
 ```javascript
-import portraitImg from './assets/portrait.webp';  // ← .webp au lieu de .png
+import portraitImg from "./assets/portrait.webp"; // ← .webp au lieu de .png
 ```
 
 ---
 
 ## 📊 Tailles recommandées
 
-| Format | Taille idéale | Qualité |
-|--------|---------------|---------|
-| PNG | 2-5 MB | Originale |
-| WebP | 500 KB - 2 MB | Excellente |
-| JPEG | 200 KB - 1 MB | Bonne |
+| Format | Taille idéale | Qualité    |
+| ------ | ------------- | ---------- |
+| PNG    | 2-5 MB        | Originale  |
+| WebP   | 500 KB - 2 MB | Excellente |
+| JPEG   | 200 KB - 1 MB | Bonne      |
 
 ---
 
@@ -58,10 +62,10 @@ import portraitImg from './assets/portrait.webp';  // ← .webp au lieu de .png
 brew install imagemagick
 
 # Optimiser en PNG
-magick src/assets/portrait.png -quality 85 -strip src/assets/portrait-optimized.png
+magick src/assets/portrait.webp -quality 85 -strip src/assets/portrait-optimized.png
 
 # Convertir en WebP
-magick src/assets/portrait.png -quality 85 src/assets/portrait.webp
+magick src/assets/portrait.webp -quality 85 src/assets/portrait.webp
 ```
 
 ---
@@ -69,11 +73,13 @@ magick src/assets/portrait.png -quality 85 src/assets/portrait.webp
 ## 💡 Pourquoi c'est important ?
 
 **Avant** (47 MB) :
+
 - ⏱️ Temps de chargement : 5-10 secondes
 - 📱 Sur mobile : Très lent
 - 💰 Consomme beaucoup de data
 
 **Après** (2 MB) :
+
 - ⚡ Temps de chargement : < 1 seconde
 - 📱 Sur mobile : Rapide
 - 💰 Économie de data
@@ -83,7 +89,7 @@ magick src/assets/portrait.png -quality 85 src/assets/portrait.webp
 ## ✅ Étapes rapides
 
 1. Allez sur https://tinypng.com
-2. Glissez votre `src/assets/portrait.png`
+2. Glissez votre `src/assets/portrait.webp`
 3. Téléchargez le fichier optimisé
 4. Remplacez le fichier dans `src/assets/`
 5. Rafraîchissez votre navigateur

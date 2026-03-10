@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Play, X, Instagram, Mail, ChevronRight } from "lucide-react";
 import logoImg from "./assets/logo.png";
-import portraitImg from "./assets/portrait.png";
-import rectangleBg from "./assets/Rectangle 19.png";
+import portraitImg from "./assets/portrait.webp";
+import rectangleBg from "./assets/Rectangle.webp";
 
 // ==========================================
 // 1. DONNÉES
@@ -287,12 +287,13 @@ const Hero = () => {
         {/* Portrait à droite - ajustable avec portraitPosition - Desktop uniquement (>= 1024px) */}
         <motion.div
           className="absolute z-20 hidden lg:block"
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1.15 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2, delay: 0.4 }}
           style={{
             right: portraitPosition.right,
             bottom: portraitPosition.bottom,
+            transform: "scale(1.15)",
           }}
         >
           <img
