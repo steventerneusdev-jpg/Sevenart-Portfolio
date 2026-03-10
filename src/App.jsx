@@ -132,41 +132,28 @@ const Hero = () => {
         />
       </div>
 
-      {/* Cercles animés en blur pour mobile et tablette (< 1024px) */}
+      {/* Cercles statiques en blur pour mobile et tablette (< 1024px) */}
       <div className="absolute inset-0 z-0 block lg:hidden overflow-hidden">
         {/* Cercle cyan principal */}
-        <motion.div
+        <div
           className="absolute w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-full bg-cyan-500"
-          style={{ filter: "blur(80px)", opacity: 0.3 }}
-          animate={{
-            x: [0, 30, 0],
-            y: [0, -40, 0],
-            scale: [1, 1.2, 1],
+          style={{ 
+            filter: "blur(80px)", 
+            opacity: 0.3,
+            top: "20%", 
+            right: "10%" 
           }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          initial={{ top: "20%", right: "10%" }}
         />
 
         {/* Cercle cyan clair secondaire */}
-        <motion.div
+        <div
           className="absolute w-[250px] h-[250px] md:w-[350px] md:h-[350px] rounded-full bg-cyan-300"
-          style={{ filter: "blur(70px)", opacity: 0.25 }}
-          animate={{
-            x: [0, -40, 0],
-            y: [0, 30, 0],
-            scale: [1, 1.15, 1],
+          style={{ 
+            filter: "blur(70px)", 
+            opacity: 0.25,
+            bottom: "30%", 
+            left: "15%" 
           }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1,
-          }}
-          initial={{ bottom: "30%", left: "15%" }}
         />
       </div>
 
