@@ -15,7 +15,7 @@ const VIDEO_DATA = [
     category: "Lifestyle",
     thumbnail: "https://img.youtube.com/vi/qJaemAhXS_w/maxresdefault.jpg",
     embedId: "qJaemAhXS_w",
-    description: "La première partie de mes vacances à Marseille.",
+    description: "",
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ const VIDEO_DATA = [
     category: "Court-métrage",
     thumbnail: "https://img.youtube.com/vi/LSEzDWj78sU/maxresdefault.jpg",
     embedId: "LSEzDWj78sU",
-    description: "La deuxième partie de mes vacances à Marseille.",
+    description: "",
   },
   {
     id: 3,
@@ -31,7 +31,7 @@ const VIDEO_DATA = [
     category: "Court-métrage",
     thumbnail: "https://img.youtube.com/vi/lIivWIiz3fk/maxresdefault.jpg",
     embedId: "lIivWIiz3fk",
-    description: "Qui suis-je ? Et quelles sont mes passions ?",
+    description: "",
   },
   {
     id: 4,
@@ -39,7 +39,7 @@ const VIDEO_DATA = [
     category: "Court-métrage",
     thumbnail: "https://img.youtube.com/vi/4sH_oDOGZkE/maxresdefault.jpg",
     embedId: "4sH_oDOGZkE",
-    description: "Mini court-métrage sur l'engagement.",
+    description: "",
   },
   {
     id: 5,
@@ -47,7 +47,7 @@ const VIDEO_DATA = [
     category: "Sport",
     thumbnail: "https://img.youtube.com/vi/GhZ1I_L__5E/maxresdefault.jpg",
     embedId: "GhZ1I_L__5E",
-    description: "Entrainement de boxe.",
+    description: "",
   },
   {
     id: 6,
@@ -55,6 +55,30 @@ const VIDEO_DATA = [
     category: "Événementiel",
     thumbnail: "https://img.youtube.com/vi/dO98IxSqwpk/maxresdefault.jpg",
     embedId: "dO98IxSqwpk",
+    description: "",
+  },
+  {
+    id: 7,
+    title: "Dote de Stéphane et Dennarh",
+    category: "Événementiel",
+    thumbnail: "https://img.youtube.com/vi/BX3SqtTsjvg/maxresdefault.jpg",
+    embedId: "BX3SqtTsjvg",
+    description: "",
+  },
+  {
+    id: 8,
+    title: "Projet sport",
+    category: "Sport",
+    thumbnail: "https://img.youtube.com/vi/9dJ3h3kwcDQ/maxresdefault.jpg",
+    embedId: "9dJ3h3kwcDQ",
+    description: "",
+  },
+  {
+    id: 9,
+    title: "Projet sport 2",
+    category: "Sport",
+    thumbnail: "https://img.youtube.com/vi/1BFAtchwfFw/maxresdefault.jpg",
+    embedId: "1BFAtchwfFw",
     description: "",
   },
 ];
