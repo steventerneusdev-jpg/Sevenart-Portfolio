@@ -10,6 +10,22 @@ import rectangleBg from "./assets/Rectangle.webp";
 // ==========================================
 const VIDEO_DATA = [
   {
+    id: 6,
+    title: "Mariage de Noehlla et Richie",
+    category: "Événementiel",
+    thumbnail: "https://img.youtube.com/vi/dO98IxSqwpk/maxresdefault.jpg",
+    embedId: "dO98IxSqwpk",
+    description: "",
+  },
+  {
+    id: 7,
+    title: "Dote de Stéphane et Dennarh",
+    category: "Événementiel",
+    thumbnail: "https://img.youtube.com/vi/BX3SqtTsjvg/maxresdefault.jpg",
+    embedId: "BX3SqtTsjvg",
+    description: "",
+  },
+  {
     id: 1,
     title: "Vacances à Marseille",
     category: "Lifestyle",
@@ -50,22 +66,6 @@ const VIDEO_DATA = [
     description: "",
   },
   {
-    id: 6,
-    title: "Mariage de Noehlla et Richie",
-    category: "Événementiel",
-    thumbnail: "https://img.youtube.com/vi/dO98IxSqwpk/maxresdefault.jpg",
-    embedId: "dO98IxSqwpk",
-    description: "",
-  },
-  {
-    id: 7,
-    title: "Dote de Stéphane et Dennarh",
-    category: "Événementiel",
-    thumbnail: "https://img.youtube.com/vi/BX3SqtTsjvg/maxresdefault.jpg",
-    embedId: "BX3SqtTsjvg",
-    description: "",
-  },
-  {
     id: 8,
     title: "Projet sport",
     category: "Sport",
@@ -85,9 +85,9 @@ const VIDEO_DATA = [
 
 const CATEGORIES = [
   "Tous",
+  "Événementiel",
   "Lifestyle",
   "Court-métrage",
-  "Événementiel",
   "Sport",
 ];
 
