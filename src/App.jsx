@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play, X, Instagram, Mail, ChevronRight } from "lucide-react";
+import { Play, X, Instagram, Mail, ChevronRight, Camera } from "lucide-react";
 import logoImg from "./assets/logo.png";
 import portraitImg from "./assets/portrait.webp";
 import rectangleBg from "./assets/Rectangle.webp";
@@ -80,6 +80,14 @@ const VIDEO_DATA = [
     thumbnail: "https://img.youtube.com/vi/1BFAtchwfFw/maxresdefault.jpg",
     embedId: "1BFAtchwfFw",
     description: "",
+  },
+  {
+    id: 10,
+    title: "Match Day with Andy Tie",
+    category: "Sport",
+    thumbnail: "https://img.youtube.com/vi/uLhzXlk3lY0/maxresdefault.jpg",
+    embedId: "uLhzXlk3lY0",
+    description: "Basket video",
   },
 ];
 
@@ -240,7 +248,7 @@ const Hero = () => {
             {/* Trait vertical cyan fin - caché sur mobile et tablette */}
             <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-cyan-500 hidden lg:block"></div>
 
-            {/* Instagram et Email - responsive */}
+            {/* Instagram, Email et Portfolio - responsive */}
             <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
               <div className="flex items-center gap-3 text-zinc-300 hover:text-cyan-400 transition-colors">
                 <Instagram size={20} />
@@ -258,6 +266,18 @@ const Hero = () => {
                 <Mail size={20} />
                 <a href="mailto:sevenart.ts@gmail.com" className="text-base">
                   sevenart.ts@gmail.com
+                </a>
+              </div>
+
+              <div className="flex items-center gap-3 text-zinc-300 hover:text-cyan-400 transition-colors">
+                <Camera size={20} />
+                <a
+                  href="https://sevenartts.myportfolio.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-base"
+                >
+                  Portfolio Photo
                 </a>
               </div>
             </div>
@@ -378,6 +398,119 @@ const PortfolioGallery = ({ filter, setFilter, videos, onVideoSelect }) => (
   </section>
 );
 
+const PhotoCarousel = () => {
+  // Pour le moment, utilisez des images placeholder ou les vôtres
+  // Ajoutez vos images dans src/assets/carousel-photos/
+  const carouselImages = [
+    // Exemple : import photo1 from "./assets/carousel-photos/photo-01.webp";
+    // Ensuite ajoutez-les ici : photo1, photo2, photo3, etc.
+    // Pour l'instant, on utilise des placeholders
+  ];
+
+  return (
+    <section className="relative w-full h-screen overflow-hidden bg-zinc-950">
+      {/* Animation de défilement des photos en fond */}
+      <div className="absolute inset-0 flex">
+        {/* Double rangée pour effet de boucle infinie */}
+        <motion.div
+          className="flex min-w-full shrink-0"
+          animate={{
+            x: [0, -1920], // Ajuster selon la largeur totale des images
+          }}
+          transition={{
+            x: {
+              repeat: Infinity,
+              repeatType: "loop",
+              duration: 40, // Animation lente (40 secondes)
+              ease: "linear",
+            },
+          }}
+        >
+          {/* Première série d'images */}
+          {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+            <div
+              key={`img-${i}`}
+              className="h-screen w-[480px] shrink-0"
+              style={{ opacity: 0.25 }}
+            >
+              <div className="w-full h-full bg-zinc-800 flex items-center justify-center text-zinc-600">
+                {/* Placeholder - remplacez par vos vraies images */}
+                <span className="text-sm">Photo {i}</span>
+              </div>
+            </div>
+          ))}
+          {/* Répétition pour boucle infinie */}
+          {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+            <div
+              key={`img-repeat-${i}`}
+              className="h-screen w-[480px] shrink-0"
+              style={{ opacity: 0.25 }}
+            >
+              <div className="w-full h-full bg-zinc-800 flex items-center justify-center text-zinc-600">
+                <span className="text-sm">Photo {i}</span>
+              </div>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* Overlay sombre pour meilleure lisibilité du texte */}
+      <div className="absolute inset-0 bg-black/40" />
+
+      {/* Contenu au centre */}
+      <div className="relative z-10 h-full flex items-center justify-center px-6">
+        <motion.div
+          className="text-center max-w-3xl"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <motion.h2
+            className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 tracking-tight"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            Capturer l'instant,{" "}
+            <span className="text-cyan-400">raconter l'émotion</span>
+          </motion.h2>
+
+          <motion.p
+            className="text-lg md:text-xl text-zinc-300 mb-10 leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            Chaque image raconte une histoire unique. De la photographie
+            événementielle aux portraits lifestyle, je capture l'authenticité de
+            chaque moment avec sensibilité et créativité.
+          </motion.p>
+
+          <motion.a
+            href="https://sevenartts.myportfolio.com/"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-3 px-10 py-4 bg-cyan-500 hover:bg-cyan-400 text-zinc-950 font-bold rounded-full transition-all duration-300 text-lg"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Camera size={24} />
+            Voir mon portfolio photo
+            <ChevronRight size={20} />
+          </motion.a>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
 const VideoModal = ({ video, onClose }) => {
   if (!video) return null;
 
@@ -480,6 +613,18 @@ const Footer = () => (
             size={32}
           />
         </motion.a>
+        <motion.a
+          href="https://sevenartts.myportfolio.com/"
+          target="_blank"
+          rel="noreferrer"
+          whileHover={{ scale: 1.1, y: -5 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <Camera
+            className="text-zinc-500 hover:text-cyan-400 cursor-pointer transition-colors"
+            size={32}
+          />
+        </motion.a>
       </motion.div>
       <div className="mt-16 text-zinc-600 text-sm">
         © {new Date().getFullYear()} Sevenart - L'art au-delà du regard.
@@ -520,6 +665,8 @@ const App = () => {
         videos={filteredVideos}
         onVideoSelect={setSelectedVideo}
       />
+
+      <PhotoCarousel />
 
       <VideoModal
         video={selectedVideo}
